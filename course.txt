@@ -1,0 +1,65 @@
+Frontend    Backend    DataSource   Editor
+JS          Golang     Mongodb      Visual Studio Code
+
+
+01 bootstrap designs
+
+02 react app designs
+    - react     -Frontend app development framewooe
+        - component
+            - state
+            - props
+
+            - UI
+                - form control
+                - data binding
+                - event binding
+        - router
+            - navigate
+            - param
+    
+    Developed react :
+        - server side js -- node.js
+    react app is used :
+        - client side (browser) 
+            - translatio of server side js code base  into client side code base
+
+    full stack
+        [client] [application/business] [data]
+                 -----------------
+                  [server]
+
+        react       go lang              mongo
+
+--------------------------------------------------------
+
+To create react app in current folder 
+$ npm create vite@latest . -- --template react
+
+To create react app in client folder 
+$ npm create vite@latest client -- --template react
+
+---------------------------------------------------------
+
+index.html
+    bootstrap css + js
+
+main.js
+    //index.css
+
+App.jsx
+    route(navigation) bt PageList,          PageCreate,     PageEdit
+                          /flights/list     flights/create  flight/edit/:id
+                          <PageHeader/>     <PageHeader/>   <PageHeader/>
+
+src/header/
+    Pageheader.jsx
+
+src/flights/
+    FlightCreate.jsx
+    FlightEdit.jsx
+    FlightList.jsx
+
+To install react-router-dom for navigation between page components
+    $ npm install react-router-dom
+    check in package.json if router dependencies is intalled sucessfully
