@@ -1,9 +1,9 @@
-function PageHeader() {
+function PageHeader( { PageNumber } ) {
     return (
         <>
             <nav className="navbar navbar-expand-lg bg-body-tertiary">
                 <div className="container-fluid">
-                    <a className="navbar-brand" href="flight_list.html">Airline Reservation System</a>
+                    <a className="navbar-brand" href="/">Airline Reservation System</a>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                         aria-label="Toggle navigation">
@@ -12,10 +12,10 @@ function PageHeader() {
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                             <li className="nav-item">
-                                <a className="nav-link active" aria-current="page" href="flight_list.html">Flights </a>
+                                <a className={PageNumber == 1 ? "nav-link active" : "nav-link"} aria-current="page" href="/flights/list">Flights </a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link active" aria-current="page" href="flight_create.html">Add Flights</a>
+                                <a className={PageNumber == 2 ? "nav-link active" : "nav-link"} aria-current="page" href="/flights/create">Add Flights</a>
                             </li>
                         </ul>
                     </div>

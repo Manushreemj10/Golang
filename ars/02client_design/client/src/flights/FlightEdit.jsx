@@ -1,7 +1,10 @@
+import PageHeader from "../header/Pageheader";
+
 function FlightEdit() {
     return (
         <>
-            <h3><a className="btn btn-success" href="flight_list.html">Go back</a>Edit Flight Ticket Price</h3>
+            <PageHeader PageNumber={1}/>
+            <h3><a className="btn btn-success" href="/flights/list">Go back</a>Edit Flight Ticket Price</h3>
             <div className="container">
                 <div className="form-group mb-3">
                     <label htmlFor="number" className="form-label">Flight Number :</label>
