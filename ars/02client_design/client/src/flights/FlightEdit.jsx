@@ -1,6 +1,17 @@
+import { useState } from "react";
 import PageHeader from "../header/Pageheader";
+import { useParams } from "react-router-dom";
 
 function FlightEdit() {
+    /*const[flight, setFlight] = useState({id:"45", number:"AI 121", airline_name:"Air India", source:"Trichy", destination:"Mysore", capacity:"150", price:7000})
+    const OnBoxChange = (event) => {
+        const newFlight = {...flight};
+        newFlight[event.target.id] = event.target.vaue ;
+        setFlight(newFlight);
+
+    }
+    const param = useParams();*/
+
     return (
         <>
             <PageHeader PageNumber={1}/>

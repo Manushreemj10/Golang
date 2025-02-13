@@ -1,6 +1,22 @@
+import { useEffect, useState } from "react";
 import PageHeader from "../header/Pageheader";
+import axios from "axios";
 
 function FlightList() {
+    const [flights, setFlights] = useState([]) //(useState : returns two dimentional array) state ref element, fn element to set state
+
+    const readAllFlights  = async () => {
+        try {
+            const baseUrl = "http://localhost:8080"
+            const response = await axios.get(`${baseUrl}/flights`);
+            setFlights(response.data);
+        }
+        catch(error){
+            alert("Server Error");
+        }
+    }; //scoped function
+    
+    useEffect(()=>{readAllFlights();},[]); 
     return (
         <>
             <PageHeader PageNumber={1} />
@@ -17,38 +33,22 @@ function FlightList() {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th scope="row">AI 845</th>
-                            <td>Air India</td>
-                            <td>Mumbai</td>
-                            <td>Abu dhabi</td>
-                            <td><a href="/flights/edit/12345" className="btn btn-warning">Edit Price</a>
-                                <button className="btn btn-danger">Delete</button></td>
-                        </tr>
-                        <tr>
-                            <th scope="row">6E 151</th>
-                            <td>Indigo</td>
-                            <td>Hyderabad</td>
-                            <td>Banglore</td>
-                            <td><a href="/flights/edit/164532" className="btn btn-warning">Edit Price</a>
-                                <button className="btn btn-danger">Delete</button></td>
-                        </tr>
-                        <tr>
-                            <th scope="row">AI 171</th>
-                            <td>Air India</td>
-                            <td>Ahmedabad</td>
-                            <td>Newyark</td>
-                            <td><a href="/flights/edit/26745" className="btn btn-warning">Edit Price</a>
-                                <button className="btn btn-danger">Delete</button></td>
-                        </tr>
-                        <tr>
-                            <th scope="row">6E 7101</th>
-                            <td>Indigo</td>
-                            <td>Hyderabad</td>
-                            <td>Manglore</td>
-                            <td><a href="/flights/edit/45732" className="btn btn-warning">Edit Price</a>
-                                <button className="btn btn-danger">Delete</button></td>
-                        </tr>
+                        {flights.map((flight) => {
+                            return (
+
+                                <tr>
+                                    <th scope="row">{flight.number}</th>
+                                    <td>{flight.airline_name}</td>
+                                    <td>{flight.source}</td>
+                                    <td>{flight.destination}</td>
+                                    <td><a href={"/flights/edit/${flight.id}"}className="btn btn-warning">Edit Price</a>
+                                        <button className="btn btn-danger">Delete</button></td>
+                                </tr>
+                            );
+                        }
+                        )
+                        }
+
                     </tbody>
                 </table>
             </div>
